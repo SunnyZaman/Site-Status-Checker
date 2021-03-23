@@ -7,7 +7,9 @@ import { SiteComponent } from 'src/app/views/site/site.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
- 
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { MatDividerModule } from '@angular/material/divider';
     RouterModule,
     SharedModule,
     MatSidenavModule,
-    MatDividerModule
+    MatDividerModule, 
+    MatCardModule,
+    MatGridListModule
   ]
 })
 export class DefaultModule { }

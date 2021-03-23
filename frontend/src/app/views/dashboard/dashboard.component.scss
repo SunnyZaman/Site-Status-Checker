@@ -11,3 +11,52 @@
     }
   }
   
+  .title {
+    font-size: 25px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    color: blueviolet;
+  }
+
+  .counter{
+    padding-bottom: 10px;
+    margin-top: 25px;
+  }
+
+  .counterButton{
+    cursor: pointer;
+
+    &:hover{
+      background-color:lightgoldenrodyellow;
+    }
+  } 
+
+  .decrementButton{
+    cursor: pointer;
+
+    &:hover{
+      background-color:lightsalmon
+    }
+  } 
+
+  .value{
+    padding-left: 97px;
+    font-weight: bold;
+    color: blue
+  }
+
+  
+  .example-card {
+    max-width: 400px;
+    display: inline-block;
+    margin: 10px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+  .cards{
+    text-align: center;
+  }

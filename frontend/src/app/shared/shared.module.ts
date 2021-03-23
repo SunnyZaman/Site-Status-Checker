@@ -11,12 +11,13 @@ import { MatMenuModule } from '@angular/material/menu';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatListModule } from '@angular/material/list';
 import { RouterModule } from '@angular/router';
+import { DataComponent } from '../views/data/data.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent, 
-    SidebarComponent
+    SidebarComponent, DataComponent
   ],
   imports: [
     CommonModule,

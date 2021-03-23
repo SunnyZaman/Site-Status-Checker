@@ -1,19 +1,44 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-
+import { Observable, throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
+import { ApiGetService } from 'src/app/services/apiGet.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  title: string = 'Site Status Tracker';
+  count: number = 0;
+  amount: number; 
+  results: any; 
 
   constructor(
-    private http: HttpClient
-  ) { }
+    private http: HttpClient,
+    private apiGet: ApiGetService
+
+  ) {}
 
   ngOnInit(): void {
+    this.count = 0; 
   }
+
+  counter() {
+    this.count++;
+  }
+
+  decrease() {
+    this.count--; 
+  }
+
+  currencyConverter(e){
+    const rate = 0.74; 
+    const {value} = e.target;
+    this.amount = value * rate;
+    
+  }
+
   sendData() {
     const headers = { 'Accept': 'application/json;odata=verbose', 'Content-Type': 'application/json;odata=verbose' };
     const body = {
@@ -38,6 +63,13 @@ export class DashboardComponent implements OnInit {
     }, err => {
       console.log('Error in Registering..');
     });
+  }
+  handleGet(){
+    this.apiGet.getData().pipe(
+      map(res=>{
+       this.results= JSON.stringify(res);
+      })
+    ).subscribe()
   }
 
 }
