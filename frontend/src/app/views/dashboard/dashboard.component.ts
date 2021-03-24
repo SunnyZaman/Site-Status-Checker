@@ -1,8 +1,9 @@
 import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { Observable, throwError, concat } from 'rxjs';
+import { catchError, finalize, map } from 'rxjs/operators';
 import { ApiGetService } from 'src/app/services/apiGet.service';
+import { randomUserService } from 'src/app/services/randomUser.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -13,11 +14,12 @@ export class DashboardComponent implements OnInit {
   count: number = 0;
   amount: number; 
   results: any; 
+  randomUser: any; 
 
   constructor(
     private http: HttpClient,
-    private apiGet: ApiGetService
-
+    private apiGet: ApiGetService, 
+    private randomUserService: randomUserService
   ) {}
 
   ngOnInit(): void {
@@ -65,11 +67,32 @@ export class DashboardComponent implements OnInit {
     });
   }
   handleGet(){
-    this.apiGet.getData().pipe(
+    const getData = this.apiGet.getData().pipe(
       map(res=>{
+        console.log("Getting data...");   
        this.results= JSON.stringify(res);
       })
-    ).subscribe()
+    );
+    const randomUser =this.randomUserService.getRandomUser().pipe(
+      map(res=>{
+        console.log("Getting random user data...");   
+       this.randomUser= JSON.stringify(res);
+      }),
+      finalize(()=>{
+        console.log("finalize")
+      })
+    );
+    concat(getData, randomUser)
+    .subscribe({
+      complete:()=>{
+        console.log("Completed");  
+      }
+    })
   }
 
+  getRandomUser(): void{
+    this.randomUserService.getRandomUser().subscribe(
+      data => this.randomUser = JSON.stringify(data)
+    )
+  }
 }

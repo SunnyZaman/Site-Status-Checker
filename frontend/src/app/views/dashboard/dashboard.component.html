@@ -76,7 +76,12 @@
     <button class="post-button" (click)="handleGet()">Get Data</button>
     <button class="post-button" (click)="sendData()">Send Data</button>
     <button class="post-button" (click)="addUser()">Add User</button>
-
+    <br/>
+    <button class="post-button" (click)="getRandomUser()">Get User</button>
+    <div *ngIf="randomUser" class="randomUser">
+      <h1 class="user-data">Random User Data</h1>
+      <p> {{randomUser}} </p>
+    </div>
     <br/>
 
     <div class="currencyTracker">
