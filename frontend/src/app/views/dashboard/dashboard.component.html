@@ -1,0 +1,107 @@
+<mat-drawer-container>
+    <div class="title">
+        {{title}}
+    </div>
+    <div class="cards">
+        <!-- Ask about the flexbox was it xs=30, m=4  -->
+        <mat-card class="example-card">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>Shiba Inu</mat-card-title>
+              <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+              <p>
+                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                bred for hunting.
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button>LIKE</button>
+              <button mat-button>SHARE</button>
+            </mat-card-actions>
+          </mat-card>
+          <mat-card class="example-card">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>Shiba Inu</mat-card-title>
+              <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+              <p>
+                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                bred for hunting.
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button>LIKE</button>
+              <button mat-button>SHARE</button>
+            </mat-card-actions>
+          </mat-card>
+          <mat-card class="example-card">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>Shiba Inu</mat-card-title>
+              <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+              <p>
+                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                bred for hunting.
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button>LIKE</button>
+              <button mat-button>SHARE</button>
+            </mat-card-actions>
+          </mat-card>
+    </div>
+    <div class="sample-data">
+      {{results}}
+    </div>
+    <div class="counter">
+        <button class="counterButton" (click)="counter()"> Counter Value </button>
+        <button class="decrementButton" (click)="decrease()"> Decrease Value</button>
+        <div class="value">
+            {{count}}
+        </div>
+    </div>
+    <br/>
+    <button class="post-button" (click)="handleGet()">Get Data</button>
+    <button class="post-button" (click)="sendData()">Send Data</button>
+    <button class="post-button" (click)="addUser()">Add User</button>
+    <br/>
+    <button class="post-button" (click)="getRandomUser()">Get User</button>
+    <div *ngIf="randomUser" class="randomUser">
+      <h1 class="user-data">Random User Data</h1>
+      <p> {{randomUser}} </p>
+    </div>
+    <br/>
+
+    <div class="currencyTracker">
+        <h1>CAD to USD Converter</h1>
+        <label id="moneyLabel" for="money">Currency Amount: </label>
+        <input type ="number" name="money" placeholder="Input the value" (keyup)="currencyConverter($event)">
+        <span> CAD to USD</span>
+        <p>The Conversion Value is: {{amount}}</p>
+    </div>
+    <div>
+        <div>Line Chart 1</div>
+        <div>Line Chart 2</div>
+        <div>Line Chart 3</div>
+        <div>Line Chart 4</div>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div>
+        <div>Table</div>
+        <div>Pie Chart</div>
+    </div>
+</mat-drawer-container>
